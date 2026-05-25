@@ -1,29 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tutorial EcoVoz - Innovación de Aplicaciones</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous">
-    <link rel="stylesheet" href="https://mit-cml.github.io/yrtoolkit/yr/css/scrollstyle.css">
-    <link rel="stylesheet" href="https://mit-cml.github.io/yrtoolkit/yr/css/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://mit-cml.github.io/yrtoolkit/yr/scripts/utils.js"></script>
-  </head>
-  <body class="md">
-    <div class="accordion" id="youthRadioAccordion">
-      
-      <h1 id="contexto">Contexto</h1>
-      <p style="font-size: 150%; font-weight: bold; color: #279B48; padding-bottom: 0;">Proyecto EcoVoz: Asistente Verde de la Comunidad</p>
-      <p><strong>ODS 12: Producción y Consumo Responsables</strong></p>
-      <p>¿Te has preguntado cuántos residuos generamos diariamente en nuestra escuela? En esta actividad crearemos un asistente interactivo con Inteligencia Artificial que nos ayudará a clasificar correctamente los desechos utilizando comandos de voz.</p>
-      <p><em>Nota: Para optimizar el tiempo de nuestra sesión de 90 minutos, utilizaremos el Mockup visual que ya se encuentra diseñado en tu pantalla. Nos enfocaremos al 100% en la programación lógica.</em></p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutorial EcoVoz - Innovación de Aplicaciones</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <style>
+    body.md {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #fff;
+      padding: 10px;
+    }
+    /* Estilos del Acordeón Oficial del MIT */
+    .accordion h1 {
+      background-color: #f4f4f4;
+      color: #333;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-left: 4px solid #1c2f8d;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 5px;
+      margin-bottom: 0;
+      transition: 0.4s;
+    }
+    .accordion h1.active, .accordion h1:hover {
+      background-color: #e9e9e9;
+    }
+    .accordion-content {
+      padding: 15px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-top: none;
+      margin-bottom: 10px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #d11a2a;
+    }
+    .highlight-text {
+      font-size: 130%;
+      font-weight: bold;
+      color: #279B48;
+      padding-bottom: 5px;
+    }
+  </style>
+</head>
 
-      <h1 id="componentes">Componentes</h1>
-      <h2>Inyectando componentes de hardware e IA</h2>
+<body class="md">
+  <div class="accordion" id="youthRadioAccordion">
+    
+    <h1 class="accordion-toggle">Challenge</h1>
+    <div class="accordion-content">
+      <p class="highlight-text">Proyecto EcoVoz: Asistente Verde de la Comunidad</p>
+      <p><strong>ODS 12: Producción y Consumo Responsables</strong></p>
+      <p>¿Te has preguntado cuántos residuos generamos diariamente en nuestra escuela? En esta actividad crearemos un asistente interactivo con IA que nos ayudará a clasificar correctamente los desechos utilizando comandos de voz.</p>
+      <p><em>Nota: Para optimizar el tiempo de nuestra sesión de 90 minutos, utilizaremos el Mockup visual que ya se encuentra diseñado en tu pantalla. Nos enfocaremos al 100% en la programación lógica.</em></p>
+    </div>
+
+    <h1 class="accordion-toggle">Setup</h1>
+    <div class="accordion-content">
+      <p style="font-weight: bold; color: #1c2f8d;">Inyectando componentes de hardware e IA</p>
       <p>Para que nuestra aplicación pueda escuchar y responder de manera autónoma, necesitamos agregar componentes no visibles de procesamiento de lenguaje natural y sensores físicos.</p>
       <p>Dirígete a la <strong>Paleta</strong> del lado izquierdo y arrastra al visor los siguientes elementos:</p>
       <ol>
@@ -31,45 +80,57 @@
         <li>Desde el cajón de <strong>Medios (Media)</strong>: Arrastra <code>TextoAVoz</code> (TextToSpeech).</li>
         <li>Desde el cajón de <strong>Sensores</strong>: Arrastra un <code>Vibrador</code> (Vibrator).</li>
       </ol>
-      <p>Verás que se posicionarán en la parte inferior de la pantalla del teléfono como <em>Componentes no visibles</em>.</p>
+    </div>
 
-      <h1 id="bloques">Programación</h1>
-      <h2>Desarrollo del "Camino Feliz"</h2>
-      <p>Haz clic en el botón de <strong>Bloques</strong> en la esquina superior derecha para iniciar la programación estructurada del asistente:</p>
+    <h1 class="accordion-toggle">Simple EcoVoz Tutorial</h1>
+    <div class="accordion-content">
+      <p style="font-weight: bold; color: #1c2f8d;">Desarrollo del "Camino Feliz"</p>
+      <p>Haz clic en el botón de <strong>Bloques</strong> para iniciar la programación estructurada del asistente:</p>
       <ul>
-        <li>Busca el componente <code>Boton_Microfono</code>, selecciona el evento <code>Cuando Boton_Microfono.Click</code> y dentro coloca el bloque: <code>llamar ReconocimientoDeVoz1.ObtenerTexto</code>. Esto activará el hardware del micrófono.</li>
+        <li>Busca el evento <code>Cuando Boton_Microfono.Click</code> y dentro coloca el bloque: <code>llamar ReconocimientoDeVoz1.ObtenerTexto</code>.</li>
         <li>Para procesar la entrada de audio, arrastra el evento general: <code>Cuando ReconocimientoDeVoz1.DespuésDeObtenerTexto(resultado)</code>.</li>
-        <li>Adentro, integra una condicional <code>si... entonces</code> de la sección de Control.</li>
-        <li>Evalúa la cadena de texto: Si el <code>resultado</code> contiene la palabra clave <strong>"plástico"</strong>, entonces ejecuta las siguientes acciones:
+        <li>Adentro, integra una condicional <code>si... entonces</code>. Evalúa: Si el <code>resultado</code> contiene la palabra clave <strong>"plástico"</strong>, entonces ejecuta:
           <ul>
-            <li><code>llamar Vibrador1.Vibrar(500)</code> (Alerta háptica).</li>
+            <li><code>llamar Vibrador1.Vibrar(500)</code>.</li>
             <li>Cambia la propiedad de la imagen central por un contenedor de reciclaje azul.</li>
-            <li><code>llamar TextoAVoz1.Hablar("El plástico tarda 500 años en degradarse. Deposítalo en el contenedor azul.")</code>.</li>
+            <li><code>llamar TextoAVoz1.Hablar("El plástico tarda 500 años en degradarse.")</code>.</li>
           </ul>
         </li>
       </ul>
+    </div>
 
-      <h1 id="reto">Reto Extremo</h1>
-      <h2>¡El Reto de Imaginación Autónoma! (45 minutos)</h2>
-      <p>Ya dominas la estructura base de la aplicación. Ahora es momento de aplicar el enfoque de la Nueva Escuela Mexicana para resolver un problema de tu entorno.</p>
-      <p><strong>Tu misión:</strong> Modifica y expande el código para que tu asistente reconozca al menos <strong>3 situaciones críticas o residuos diferentes</strong> de tu escuela (por ejemplo: <em>'orgánico', 'papel', 'fuga de agua', 'luz encendida'</em>).</p>
+    <h1 class="accordion-toggle">Expand Your App</h1>
+    <div class="accordion-content">
+      <p style="font-weight: bold; color: #1c2f8d;">¡El Reto de Imaginación Autónoma! (45 minutos)</p>
+      <p><strong>Tu misión:</strong> Modifica y expande el código para que tu asistente reconozca al menos <strong>3 situaciones críticas o residuos diferentes</strong> de tu escuela (por ejemplo: <em>'orgánico', 'papel', 'fuga de agua'</em>).</p>
       <p>Condiciones obligatorias para cumplir el reto con éxito:</p>
       <ul>
-        <li>Cada palabra clave debe provocar una respuesta de voz (TextoAVoz) totalmente diferente, persuasiva o alarmante según el problema detectado.</li>
-        <li>La interfaz visual debe cambiar drásticamente (colores de fondo o imágenes de alerta) para cada caso.</li>
+        <li>Cada palabra debe provocar una respuesta de voz (TextoAVoz) totalmente diferente y persuasiva.</li>
+        <li>La interfaz visual debe cambiar (colores de fondo o imágenes) para cada caso.</li>
         <li>Configura un patrón de vibración único para diferenciar los residuos más peligrosos.</li>
       </ul>
     </div>
-    
-    <div id="serverTutorialId" style="display: none;"></div>
-    <script src="https://mit-cml.github.io/yrtoolkit/yr/scripts/markdown.js"></script>
-    <script src="https://mit-cml.github.io/yrtoolkit/yr/scripts/tabHandler.js"></script>
-    <script src="https://mit-cml.github.io/yrtoolkit/yr/scripts/tutorialPage.js"></script>
-    <script src="https://mit-cml.github.io/yrtoolkit/yr/scripts/shareAndPublish.js"></script>
-    <script>
-      $( function() {
-          $( ".widget input[type=submit], .widget a, .widget button" ).button();
-      } );
-    </script>
-  </body>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script>
+    $(document).ready(function(){
+      // Ocultar todos los contenidos al inicio excepto el primero
+      $(".accordion-content").not(":first").hide();
+      $(".accordion-toggle:first").addClass("active");
+      
+      // Manejar el evento de clic en las pestañas
+      $(".accordion-toggle").click(function(){
+        // Alternar el contenido de la pestaña clickeada
+        $(this).next(".accordion-content").slideToggle("fast");
+        $(this).toggleClass("active");
+        
+        // Opcional: Cerrar las demás pestañas para simular el comportamiento exacto del MIT
+        $(".accordion-content").not($(this).next()).slideUp("fast");
+        $(".accordion-toggle").not($(this)).removeClass("active");
+      });
+    });
+  </script>
+</body>
 </html>
