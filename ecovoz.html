@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial EcoVoz - Innovación de Aplicaciones</title>
+    <link rel="stylesheet" href="https://mit-cml.github.io/yrtoolkit/yr/connect/css/style.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; line-height: 1.5; padding: 10px; }
+        .ods-badge { background-color: #279B48; color: white; padding: 3px 8px; font-size: 0.8em; border-radius: 4px; font-weight: bold; }
+        code { background-color: #f4f4f4; padding: 2px 5px; border-radius: 4px; font-family: monospace; color: #c7254e; }
+        .highlight-box { background-color: #e7f3fe; border-left: 6px solid #2196F3; padding: 10px; margin: 10px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="tutorialContainer">
+        
+        <section class="tutorialPage">
+            <h2>1. El Contexto: ODS 12</h2>
+            <p><span class="ods-badge">ODS 12: Producción y Consumo Responsables</span></p>
+            <p>¿Te has preguntado cuántos residuos generamos diariamente en nuestra escuela? En este proyecto crearemos <strong>EcoVoz</strong>, un asistente interactivo con Inteligencia Artificial que nos ayudará a clasificar correctamente los desechos utilizando la voz.</p>
+            <div class="highlight-box">
+                <strong>🚨 Nota del Docente:</strong> Para esta actividad utilizaremos el Mockup visual que ya se encuentra diseñado en tu pantalla (Disposiciones, Imagen del Planeta y el Botón de Micrófono). ¡Nos enfocaremos al 100% en la lógica de bloques!
+            </div>
+        </section>
+
+        <section class="tutorialPage">
+            <h2>2. Inyectando Inteligencia Artificial</h2>
+            <p>Para que nuestra aplicación pueda escuchar y hablar de manera autónoma, necesitamos agregar componentes no visibles de hardware y procesamiento de lenguaje.</p>
+            <p>Ve a la <strong>Paleta</strong> del lado izquierdo y arrastra al visor los siguientes elementos:</p>
+            <ol>
+                <li>Desde la sección <strong>Medios (Media)</strong>: Arrastra <code>ReconocimientoDeVoz</code> (SpeechRecognizer).</li>
+                <li>Desde la sección <strong>Medios (Media)</strong>: Arrastra <code>TextoAVoz</code> (TextToSpeech).</li>
+                <li>Desde la sección <strong>Sensores</strong>: Arrastra un <code>Vibrador</code> (Vibrator).</li>
+            </ol>
+            <p>Verás que aparecen en la parte inferior del teléfono como <em>Componentes no visibles</em>.</p>
+        </section>
+
+        <section class="tutorialPage">
+            <h2>3. Programación del "Camino Feliz"</h2>
+            <p>¡Vamos al editor de <strong>Bloques</strong>! Sigue estos pasos con tu profesor para estructurar la primera respuesta del asistente:</p>
+            <ul>
+                <li>Busca el evento: <code>Cuando Boton_Microfono.Click</code> y dentro coloca el bloque: <code>llamar ReconocimientoDeVoz1.ObtenerTexto</code>. Esto abrirá el micrófono de tu celular.</li>
+                <li>Para procesar lo escuchado, busca el evento general: <code>Cuando ReconocimientoDeVoz1.DespuésDeObtenerTexto(resultado)</code>.</li>
+                <li>Adentro, arrastra una condicional <code>si... entonces</code> de la sección de Control.</li>
+                <li>Usa un bloque de texto para evaluar: Si el <code>resultado</code> contiene la palabra <strong>"plástico"</strong>, entonces ejecuta las siguientes acciones de innovación:
+                    <ul>
+                        <li><code>llamar Vibrador1.Vibrar(500)</code> (Retroalimentación física).</li>
+                        <li>Cambia la imagen de pantalla por un contenedor de reciclaje.</li>
+                        <li><code>llamar TextoAVoz1.Hablar("El plástico tarda 500 años en degradarse. Deposítalo en el contenedor azul.")</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="tutorialPage">
+            <h2>4. ¡El Reto de Imaginación Extrema!</h2>
+            <p>Ya dominas la base de la aplicación. Ahora es momento de que demuestres tus habilidades de programación independiente durante los próximos 45 minutos.</p>
+            <div class="highlight-box">
+                <strong>🎯 Tu Misión Comunitario-Ambiental:</strong><br>
+                Modifica y expande el código para que tu asistente reconozca al menos <strong>3 situaciones críticas o residuos diferentes</strong> de tu entorno escolar (ejemplo: <em>'orgánico', 'papel', 'fuga de agua', 'luz encendida'</em>).
+            </div>
+            <p><strong>Condiciones obligatorias para cumplir el reto:</strong></p>
+            <ul>
+                <li>Cada palabra clave debe provocar una reacción de voz (TextoAVoz) totalmente diferente, persuasiva o alarmante según el problema.</li>
+                <li>La interfaz visual debe cambiar drásticamente (colores de fondo, mensajes o imágenes de alerta) para cada caso.</li>
+                <li>Configura un patrón de vibración único para diferenciar los residuos más peligrosos.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://mit-cml.github.io/yrtoolkit/yr/connect/js/tutorial.js"></script>
+</body>
+</html>
