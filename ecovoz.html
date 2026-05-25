@@ -1,135 +1,88 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tutorial EcoVoz - Innovación de Aplicaciones</title>
-  
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  
-  <style>
-    body.md {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.42857143;
-      color: #333;
-      background-color: #fff;
-      padding: 10px;
-    }
-    /* Estilos del Acordeón Oficial Estilizado */
-    .accordion h1 {
-      background-color: #f4f4f4;
-      color: #333;
-      cursor: pointer;
-      padding: 10px;
-      width: 100%;
-      border: 1px solid #ddd;
-      border-left: 4px solid #1c2f8d;
-      text-align: left;
-      outline: none;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 5px;
-      margin-bottom: 0;
-      transition: 0.4s;
-    }
-    .accordion h1.active, .accordion h1:hover {
-      background-color: #e9e9e9;
-    }
-    .accordion-content {
-      padding: 15px;
-      background-color: white;
-      border: 1px solid #ddd;
-      border-top: none;
-      margin-bottom: 10px;
-    }
-    code {
-      background-color: #f4f4f4;
-      padding: 2px 4px;
-      border-radius: 4px;
-      font-family: monospace;
-      color: #d11a2a;
-    }
-    .highlight-text {
-      font-size: 130%;
-      font-weight: bold;
-      color: #279B48;
-      padding-bottom: 5px;
-    }
-  </style>
+    <meta charset="utf-8">
+    <title>MIT App Inventor Tutorial: EcoVoz</title>
 </head>
+<body>
 
-<body class="md">
-  <div class="accordion" id="youthRadioAccordion">
+    <p><strong>Description:</strong> Crea un asistente interactivo con Inteligencia Artificial que utiliza reconocimiento de voz y alertas hápticas para ayudar a clasificar los residuos escolares y promover la sustentabilidad ambiental.</p>
+
+    <p><strong>Tags / Concepts:</strong> Artificial Intelligence, Natural Language Processing (NLP), Speech Recognition, Text-to-Speech, Mobile UI Design, Sustainable Development Goals (SDG 12), Hardware Interfacing (Haptic Feedback).</p>
+
+    <hr>
+
+    <h1>Challenge</h1>
     
-    <h1 class="accordion-toggle">Challenge</h1>
-    <div class="accordion-content">
-      <p class="highlight-text">Proyecto EcoVoz: Asistente Verde de la Comunidad</p>
-      <p><strong>ODS 12: Producción y Consumo Responsables</strong></p>
-      <p>¿Te has preguntado cuántos residuos generamos diariamente en nuestra escuela? En esta actividad crearemos un asistente interactivo con IA que nos ayudará a clasificar correctamente los desechos utilizando comandos de voz.</p>
-      <p><em>Nota: Para optimizar el tiempo de nuestra sesión de 90 minutos, utilizaremos el Mockup visual que ya se encuentra diseñado en tu pantalla. Nos enfocaremos al 100% en la programación lógica.</em></p>
-    </div>
+    <h2>Proyecto EcoVoz: Asistente Verde de la Comunidad</h2>
+    <p>¿Te has preguntado cuántos residuos generamos diariamente en nuestra escuela? En este tutorial, construirás una aplicación móvil que utiliza herramientas avanzadas de Inteligencia Artificial para permitir a los usuarios interactuar mediante comandos de voz y clasificar la basura de su entorno (alineado al ODS 12: Producción y Consumo Responsables).</p>
+    
+    <p>Este proyecto está diseñado para ejecutarse en una sesión de 90 minutos. Nos enfocaremos en la lógica de bloques utilizando un Mockup visual preconstruido.</p>
 
-    <h1 class="accordion-toggle">Setup</h1>
-    <div class="accordion-content">
-      <p style="font-weight: bold; color: #1c2f8d;">Inyectando componentes de hardware e IA</p>
-      <p>Para que nuestra aplicación pueda escuchar y responder de manera autónoma, necesitamos agregar componentes no visibles de procesamiento de lenguaje natural y sensores físicos.</p>
-      <p>Dirígete a la <strong>Paleta</strong> del lado izquierdo y arrastra al visor los siguientes elementos:</p>
-      <ol>
-        <li>Desde el cajón de <strong>Medios (Media)</strong>: Arrastra <code>ReconocimientoDeVoz</code> (SpeechRecognizer).</li>
-        <li>Desde el cajón de <strong>Medios (Media)</strong>: Arrastra <code>TextoAVoz</code> (TextToSpeech).</li>
-        <li>Desde el cajón de <strong>Sensores</strong>: Arrastra un <code>Vibrador</code> (Vibrator).</li>
-      </ol>
-    </div>
+    <p><strong>Download Link for Compiled App (.APK):</strong> <a href="URL_DE_TU_APK_AQUI">Download EcoVoz APK</a></p>
+    <p><strong>Download Link for Project Source (.AIA):</strong> <a href="URL_DE_TU_AIA_AQUI">Download EcoVoz Source Code</a></p>
 
-    <h1 class="accordion-toggle">Simple EcoVoz Tutorial</h1>
-    <div class="accordion-content">
-      <p style="font-weight: bold; color: #1c2f8d;">Desarrollo del "Camino Feliz"</p>
-      <p>Haz clic en el botón de <strong>Bloques</strong> para iniciar la programación estructurada del asistente:</p>
-      <ul>
-        <li>Busca el evento <code>Cuando Boton_Microfono.Click</code> y dentro coloca el bloque: <code>llamar ReconocimientoDeVoz1.ObtenerTexto</code>.</li>
-        <li>Para procesar la entrada de audio, arrastra el evento general: <code>Cuando ReconocimientoDeVoz1.DespuésDeObtenerTexto(resultado)</code>.</li>
-        <li>Adentro, integra una condicional <code>si... entonces</code>. Evalúa: Si el <code>resultado</code> contiene la palabra clave <strong>"plástico"</strong>, entonces ejecuta:
-          <ul>
-            <li><code>llamar Vibrador1.Vibrar(500)</code>.</li>
-            <li>Cambia la propiedad de la imagen central por un contenedor de reciclaje azul.</li>
-            <li><code>llamar TextoAVoz1.Hablar("El plástico tarda 500 años en degradarse.")</code>.</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <hr>
 
-    <h1 class="accordion-toggle">Expand Your App</h1>
-    <div class="accordion-content">
-      <p style="font-weight: bold; color: #1c2f8d;">¡El Reto de Imaginación Autónoma! (45 minutos)</p>
-      <p><strong>Tu misión:</strong> Modifica y expande el código para que tu asistente reconozca al menos <strong>3 situaciones críticas o residuos diferentes</strong> de tu escuela (por ejemplo: <em>'orgánico', 'papel', 'fuga de agua'</em>).</p>
-      <p>Condiciones obligatorias para cumplir el reto con éxito:</p>
-      <ul>
-        <li>Cada palabra debe provocar una respuesta de voz (TextoAVoz) totalmente diferente y persuasiva.</li>
-        <li>La interfaz visual debe cambiar (colores de fondo o imágenes) para cada caso.</li>
-        <li>Configura un patrón de vibración único para diferenciar los residuos más peligrosos.</li>
-      </ul>
-    </div>
+    <h1>Setup</h1>
 
-  </div>
+    <h2>Inyectando componentes de hardware e IA</h2>
+    <p>Para que nuestra aplicación pueda escuchar y responder de manera autónoma, necesitamos agregar componentes no visibles de procesamiento de lenguaje natural y sensores físicos desde la Paleta.</p>
+    
+    <ol>
+        <li>Dirígete a la <strong>Paleta</strong> del lado izquierdo de tu pantalla.</li>
+        <li>Abre el cajón de <strong>Medios (Media)</strong> y arrastra al visor el componente <code>ReconocimientoDeVoz</code> (SpeechRecognizer).</li>
+        <li>En el mismo cajón de Medios, selecciona y arrastra el componente <code>TextoAVoz</code> (TextToSpeech).</li>
+        <li>Ahora, ve al cajón de <strong>Sensores</strong> y arrastra al visor un <code>Vibrador</code> (Vibrator).</li>
+    </ol>
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script>
-    $(document).ready(function(){
-      // Ocultar todos los contenidos al inicio excepto el primero
-      $(".accordion-content").not(":first").hide();
-      $(".accordion-toggle:first").addClass("active");
-      
-      // Manejar el evento de clic en las pestañas
-      $(".accordion-toggle").click(function(){
-        $(this).next(".accordion-content").slideToggle("fast");
-        $(this).toggleClass("active");
-        
-        // Cierra las demás pestañas para simular el comportamiento limpio
-        $(".accordion-content").not($(this).next()).slideUp("fast");
-        $(".accordion-toggle").not($(this)).removeClass("active");
-      });
-    });
-  </script>
+    <p>Verás que estos elementos se posicionarán en la parte inferior del teléfono bajo la sección de <em>Componentes no visibles</em>, tal como se muestra en la interfaz de diseño base.</p>
+
+    <p><img src="ecovoz_designer_layout.png" alt="EcoVoz Designer Layout"></p>
+
+    <hr>
+
+    <h1>Simple EcoVoz Tutorial</h1>
+
+    <h2>Programación de la Lógica de la IA (El "Camino Feliz")</h2>
+    <p>Haz clic en el botón de <strong>Bloques</strong> en la esquina superior derecha para iniciar la programación estructurada que le dará vida al asistente.</p>
+    
+    <h3>Paso 1: Activación del Hardware</h3>
+    <p>Busca el componente <code>Boton_Microfono</code>, arrastra el evento <code>Cuando Boton_Microfono.Click</code> y dentro coloca el bloque: <code>llamar ReconocimientoDeVoz1.ObtenerTexto</code>. Esto activará el hardware del micrófono del dispositivo para capturar el audio del usuario.</p>
+    
+    <p><img src="blocks_microphone_click.png" alt="Microphone Click Blocks"></p>
+
+    <h3>Paso 2: Procesamiento del Lenguaje Natural (NLP)</h3>
+    <p>Para evaluar lo que el usuario ha dicho, arrastra el evento general: <code>Cuando ReconocimientoDeVoz1.DespuésDeObtenerTexto(resultado)</code>. Adentro, integra una estructura condicional <code>si... entonces</code> de la sección Control.</p>
+    
+    <p>Utiliza un bloque de lógica de texto para evaluar: Si el texto del <code>resultado</code> contiene la palabra clave <strong>"plástico"</strong>, entonces ejecuta las siguientes acciones:</p>
+    <ul>
+        <li><code>llamar Vibrador1.Vibrar(500)</code> para generar una alerta háptica en la mano del usuario.</li>
+        <li>Cambia la propiedad de la imagen central (<code>Img_Estado.Foto</code>) por el contenedor de reciclaje azul (<em>contenedor_azul.png</em>).</li>
+        <li><code>llamar TextoAVoz1.Hablar</code> con el mensaje: <em>"El plástico tarda 500 años en degradarse. Deposítalo en el contenedor azul."</em></li>
+    </ul>
+
+    <p><img src="blocks_nlp_logic.png" alt="NLP Logic Blocks"></p>
+
+    <hr>
+
+    <h1>Expand Your App</h1>
+
+    <h2>¡El Reto de Imaginación Autónoma! (45 minutos)</h2>
+    <p>Ya dominas la estructura base de la comunicación por voz y la respuesta multisensorial. Ahora es momento de aplicar tus conocimientos para resolver un problema crítico de tu entorno escolar de manera independiente.</p>
+    
+    <p><strong>Tu misión comunitaria:</strong> Modifica y expande el código de tus bloques para que tu asistente sea capaz de reconocer al menos <strong>3 situaciones críticas o residuos diferentes</strong> de tu plantel (por ejemplo: <em>'orgánico', 'papel', 'fuga de agua', 'luz encendida'</em>).</p>
+    
+    <p>Condiciones obligatorias para cumplir el reto con éxito:</p>
+    <ul>
+        <li>Cada palabra clave debe provocar una respuesta de voz (TextoAVoz) totalmente diferente, persuasiva o alarmante según la gravedad de la situación.</li>
+        <li>La interfaz visual del teléfono debe cambiar de forma drástica (colores de fondo o imágenes de alerta) para cada caso detectado.</li>
+        <li>Configura un patrón de vibración único en los bloques para diferenciar los residuos o reportes más peligrosos.</li>
+    </ul>
+
+    <h3>Captura del Proyecto Terminado</h3>
+    <p>A continuación se muestra un ejemplo de la arquitectura de bloques final esperada para resolver el reto de expansión:</p>
+    <p><img src="ecovoz_completed_blocks.png" alt="EcoVoz Completed Blocks"></p>
+
 </body>
 </html>
